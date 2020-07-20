@@ -12,6 +12,6 @@ Currently, it creates a window which looks somewhat likes this, except animated.
 - Better shaders
   - Integration with [shadertoy](https://www.shadertoy.com)
   - More colors! Better images!
-- Better screen background emulation
+- Make the window actually behave like the screen background
   - A la ![desktopgalaxy](https://github.com/khemritolya/desktopgalaxy) would require X11 badness.
-  - Might break cross-platform nature, which we would like to maintain.
+  - Might (?) break cross-platform nature, which we would like to maintain.
