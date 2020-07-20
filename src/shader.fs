@@ -22,5 +22,5 @@ void main() {
     vec2 index = vec2(fmod(texture_coords.x + warp, 1.0), fmod(texture_coords.y + warp, 1.0));
     vec4 warped = texture(tex, index);
     float value = layer(warped);
-    color = vec4(value, value * value, 0.0, 1.0);
+    color = vec4(sqrt(value), value * value, 0.0, 1.0);
 }
