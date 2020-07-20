@@ -10,7 +10,7 @@ Currently, it creates a window which looks somewhat likes this, except animated.
 ### A Roadmap for the future
 
 - Better shaders
-  - Integration with ![shadertoy](https://shadertoy.com)
+  - Integration with [shadertoy](https://www.shadertoy.com)
   - More colors! Better images!
 - Better screen background emulation
   - A la ![desktopgalaxy](https://github.com/khemritolya/desktopgalaxy) would require X11 badness.
