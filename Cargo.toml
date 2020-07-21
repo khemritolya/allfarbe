@@ -9,7 +9,6 @@ repository = "https://github.com/khemritolya/allfarbe/"
 exclude = [
     ".github/previews/*"
 ]
-license = "MIT"
 license-file = "LICENSE"
 
 [dependencies]

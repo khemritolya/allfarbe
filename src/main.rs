@@ -25,10 +25,10 @@ fn get_raw_noise_values(width: u32, height: u32) -> Vec<Vec<f32>> {
     for i in 0..height {
         let mut local = Vec::new();
         for j in 0..width {
-            local.push(noise.get([i as f64 /  32.0, j as f64 /  32.0]) as f32);
             local.push(noise.get([i as f64 /  64.0, j as f64 /  64.0]) as f32);
             local.push(noise.get([i as f64 / 128.0, j as f64 / 128.0]) as f32);
             local.push(noise.get([i as f64 / 256.0, j as f64 / 256.0]) as f32);
+            local.push(noise.get([i as f64 / 512.0, j as f64 / 512.0]) as f32);
         }
         data.push(local);
     }
@@ -127,7 +127,9 @@ fn main() {
             _ => return,
         }
 
-        let next_frame_time = Instant::now() + Duration::from_nanos(16_666_667);
+        let next_frame_time = Instant::now() + Duration::from_nanos(64_666_667);
+
+        *control_flow = glutin::event_loop::ControlFlow::WaitUntil(next_frame_time);
 
         let mut target = display.draw();
         target.clear_color(0.0, 0.0, 0.0, 1.0);
@@ -146,6 +148,5 @@ fn main() {
         target.draw(&vertex_buffer, &indices, &program, &uniforms, &Default::default()).unwrap();
         target.finish().unwrap();
         
-        *control_flow = glutin::event_loop::ControlFlow::WaitUntil(next_frame_time);
     });
 }
