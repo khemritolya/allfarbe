@@ -37,6 +37,12 @@ fn get_raw_noise_values(width: u32, height: u32) -> Vec<Vec<f32>> {
 }
 
 fn get_noise_texture(display: &Display, raw: &Vec<Vec<f32>>, width: u32, height: u32) -> Texture2d {
+    if height as usize > raw.len() || width as usize > raw.get(0).unwrap().len() {
+        let values = get_raw_noise_values(width, height);
+        println!("This is strange. Recomputing for {}x{}", width, height);
+        return get_noise_texture(display, &values, width, height);
+    };
+
     let mut data: Vec<f32> = Vec::new();
     
     for i in 0..height {
