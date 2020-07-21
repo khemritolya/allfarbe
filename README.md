@@ -3,9 +3,10 @@
 
 A Rust Desktop Background Project.
 
-Currently, it creates a window which looks somewhat likes this, except animated. CPU usage is around 0-1% on my machine, which is pretty good. Should run on Windows/Mac/Linux. Open an issue if you run into a problem.
-
+Currently, it creates a window which looks somewhat likes this, except animated.
 ![An image](https://github.com/khemritolya/allfarbe/blob/master/.github/previews/allfarbe_preview.png)
+
+CPU usage is around 0-1% on my machine, which is pretty good. GPU usage is a bit pesky, however. More research is required, but at least the power draw is equivalent to firefox while scrolling. Should run on Windows/Mac/Linux. Open an issue if you run into a problem.
 
 ### A Roadmap for the future
 
