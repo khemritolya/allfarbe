@@ -20,8 +20,8 @@ vec2 wrap_index(float a, float b) {
 float smooth_sample(sampler2D tex, vec2 coords) {
     float count = 0;
     float result = 0;
-    for (float i = -0.005; i <= 0.0051; i += 0.005) {
-        for (float j = -0.005; j <= 0.0051; j += 0.005) {
+    for (float i = -0.0005; i <= 0.00051; i += 0.0005) {
+        for (float j = -0.0005; j <= 0.00051; j += 0.0005) {
             count++;
             vec2 index = wrap_index(coords.x + i, coords.y + j);
             result += layer(texture(tex, index));
@@ -37,9 +37,9 @@ void main() {
 
     float layered_noise = layer(texture(tex, texture_coords));
     float smooth_noise = smooth_sample(tex, texture_coords);
-    float warp = fmod(smooth_noise + time / 60000.0 + layered_noise / 10, 1.0);
+    float warp = smooth_noise + time / 60000.0 + layered_noise / 10;
 
-    vec2 index = wrap_index(texture_coords.x + warp, texture_coords.y + warp);
+    vec2 index = wrap_index(texture_coords.x + sin(warp), texture_coords.y + cos(warp));
     float value = smooth_sample(tex, index) * 0.65 + layered_noise * 0.35;
-    color = vec4(sqrt(value) + 0.1, value * value * 1.5, 0.0, 1.0);
+    color = vec4(value + 0.1, value * value * 1.5, 0.0, 1.0);
 }
